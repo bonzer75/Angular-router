@@ -11,7 +11,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class HomeComponent implements OnInit{
 
   constructor (
-    private productsService: ProductsService,
+    private service: ProductsService,
     private route: ActivatedRoute
   ) {}
 
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit{
   let productId: string | null = null;
 
   ngOnInit(): void {
-    this.productsService.getAll(10, 0).subscribe((data) => {
+    this.service.getAll(10, 0).subscribe((data) => {
       this.products = data;
       this.offset += this.limit;
     });
