@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../services/store.service'
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
+import { CategoriesService } from 'src/app/services/categories.service';
+import { Category } from 'src/app/models/category.model';
 
 @Component({
   selector: 'app-nav',
@@ -18,12 +20,17 @@ export class NavComponent implements OnInit {
   constructor(
     private storeService: StoreService,
     private authService: AuthService,
+    private categoryService: CategoriesService
   ) { }
+    categories: Category[] = []
 
   ngOnInit(): void {
     this.storeService.myCart$.subscribe(products => {
       this.counter = products.length;
     });
+    this.getAllCategories().subscribe(data => {
+      this.categories = data
+    })
   }
 
   toggleMenu() {
@@ -35,6 +42,10 @@ export class NavComponent implements OnInit {
     .subscribe(user => {
       this.profile = user;
     });
+  }
+
+  getAllCategories() {
+    this.categoryService.getAll()
   }
 
 }
