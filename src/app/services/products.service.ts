@@ -36,6 +36,16 @@ export class ProductsService {
     );
   }
 
+  getByCategory(categoryId: string, limit?: number, offset?: number) {
+    let params = new HttpParams();
+    if (limit && offset) {
+      params = params.set('limit', limit);
+      params = params.set('offset', limit);
+    }
+    return this.http.get<Product[]>(`${environment.API_URL}/api/categories/${categoryId}/products`, { params, context: checkTime() })
+
+  }
+
   fetchReadAndUpdate(id: string, dto: UpdateProductDTO) {
     return zip(
       this.getOne(id),
