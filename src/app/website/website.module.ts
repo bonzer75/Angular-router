@@ -20,6 +20,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SwiperModule } from 'swiper/angular';
+import { QuicklinkModule } from 'ngx-quicklink';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { SwiperModule } from 'swiper/angular';
   exports: [
     ImgComponent,
     ProductComponent,
-    ProductsComponent
+    ProductsComponent,
+    QuicklinkModule
   ]
 })
 export class WebsiteModule { }
