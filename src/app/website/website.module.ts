@@ -32,7 +32,6 @@ import { SwiperModule } from 'swiper/angular';
     TimeAgoPipe,
     HighlightDirective,
     HomeComponent,
-    CategoryComponent,
     MycartComponent,
     LoginComponent,
     RegisterComponent,
@@ -49,10 +48,7 @@ import { SwiperModule } from 'swiper/angular';
   exports: [
     ImgComponent,
     ProductComponent,
-    ProductsComponent,
-    ReversePipe,
-    TimeAgoPipe,
-    HighlightDirective,
+    ProductsComponent
   ]
 })
 export class WebsiteModule { }
